@@ -1,0 +1,23 @@
+# Ignorer tous les fichiers sauf ceux du site web
+*.csv
+*.numbers
+*.Rmd
+*.R
+*.md
+*.pdf
+*.png
+*.DS_Store
+CSES_1.csv
+CSES_1.numbers
+Projet_recherche_VF.Rmd
+R_projet1.md
+Sans titre.Rmd
+cv.julia.pdf
+cv.png
+portfolio_julia.html
+projet.png
+projet_recherche.R
+projet_session/
+projetrecherche.html
+r_projet.R
+site web final/
