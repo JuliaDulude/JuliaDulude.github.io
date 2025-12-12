@@ -1,1 +1,31 @@
+install.packages("tidyverse")
+install.packages("stargazer")
+install.packages("dplyr")
 
+library(tidyverse)
+library(stargazer)
+library(ggplot2)    
+library(dplyr) # Correction de l'erreur de frappe
+
+# Charger les données
+CSES_1 <- read.csv("/Users/juliaduludebellavance/Documents/CSES_1.csv")
+
+# Nettoyer les données pour enlever les NA
+cses_clean <- CSES_1 %>%
+    drop_na(int_pol, perc_corruption)
+
+# Régression linéaire simple
+modele <- lm(int_pol ~ perc_corruption, data = cses_clean) 
+
+summary(modele)
+
+# Visualisation (nuage de points + ligne de régression)
+ggplot(cses_clean, aes(x = perc_corruption, y = int_pol)) + 
+    geom_point(alpha = 0.4) +
+    geom_smooth(method = "lm", se = TRUE) +
+    labs(
+        title = "Relation entre la Perception de la corruption et l'Intérêt politique", 
+        x = "Perception de la corruption (Variable Indépendante)", 
+        y = "Niveau d'intérêt politique (Variable Dépendante)" 
+    ) +
+    theme_minimal()
